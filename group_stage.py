@@ -43,7 +43,7 @@ def print_points():
     for team in range(0,4):
       team_index = group_teams[team]['index']
       team_points = group_teams[team]['points']
-      print('{:>30}'.format(f'{common.TEAMS[team_index]} {team_points}'), end="")
+      print('{:>15}'.format(f'{common.TEAMS[team_index]} {team_points}'), end="")
 
   print('\n')
 
