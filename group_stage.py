@@ -35,7 +35,7 @@ def get_points(e):
   return e['points']
 def print_points():
   for group in range(0,8):
-    print(f'\ngroup_{chr(97+group)}')
+    print(f'\ngroup_{chr(97+group)}', end="")
     group_teams = groups[group]
     #sort by points desc
     group_teams.sort(key=get_points, reverse=True)
