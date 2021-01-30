@@ -36,15 +36,14 @@ def match(home_index, away_index):
   calculate_points(home_index, home_score, away_index, away_score)
 
 def print_points():
-  print(f'\033[1;34;40m GROUP STAGE\n\n\033[1;34;40m GROUP STAGE FINAL POINTS: \033[1;37;40m{points}')
-
   for group in range(0,8):
     print(f'\ngroup_{chr(97+group)}', end="")
     group_teams = groups[group]
     
     for team in range(0,4):
       print('{:>30}'.format(f'{common.TEAMS[group_teams[team]]} {points[group_teams[team]]}'), end="")
-    print('\')
+
+  print('\n')
 
 def group_stage():
   round1_arragement = ((0, 1), (2, 0), (0, 3), (1, 2) ,(1, 3), (2, 3))
