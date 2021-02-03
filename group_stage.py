@@ -104,8 +104,7 @@ def group_stage():
       away_team = group_teams[round2_arragement[day][1]]
       match(home_team, away_team)
 
-  qualified_teams = get_qualified_teams()
-
   print_result()
-
+  
+  qualified_teams = get_qualified_teams()
   return qualified_teams
