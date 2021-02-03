@@ -1,12 +1,7 @@
 import common
 
 # 32 teams diviced into 8 groups
-# groups = (
-#   range(0,4), range(4,8), range(8,12), range(12,16),
-#   range(16,20), range(20,24), range(24,28), range(28,32)
-# )
 groups = []
-
 
 # calculate points after a match
 def calculate_points(home_team, home_score, away_team, away_score):
