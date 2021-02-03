@@ -1,6 +1,6 @@
 import common
 
-print("\033[1;34;40mUEFA CHAMPIONS LEAGUE\033[1;37;40m\n\n")
+print("\033[1;34;40mUEFA CHAMPIONS LEAGUE\n\n\nGROUP STAGE:\n")
 
 # 32 teams diviced into 8 groups
 # groups = (
@@ -31,11 +31,13 @@ def match(home_team, away_team):
   # add points
   calculate_points(home_team, home_score, away_team, away_score)
 
+print('\nGROUP STAGE FINAL SCORES')
+
 def get_points(e):
   return e['points']
 def print_points():
   for group in range(0,8):
-    print(f'\ngroup_{chr(97+group)}', end="")
+    print(f'\n\033[1;34;40mGROUP {chr(65+group)}:', end="")
     group_teams = groups[group]
     #sort by points desc
     group_teams.sort(key=get_points, reverse=True)
@@ -43,7 +45,7 @@ def print_points():
     for team in range(0,4):
       team_index = group_teams[team]['index']
       team_points = group_teams[team]['points']
-      print('{:>15}'.format(f'{common.TEAMS[team_index]} {team_points}'), end="")
+      print('\033[0;37;40m{:>16}'.format(f'{common.TEAMS[team_index]}: {team_points}'), end="")
 
   print('\n')
 
@@ -57,6 +59,31 @@ def initial_grouping():
       # grouping.append((group*4)+(team)
     
     groups.append(grouping)
+
+def get_qualified_teams():
+  qualified_teams = []
+  for group in range(0, 8):
+    qualified_teams.append({
+      'winner': groups[group][0]['index'],
+      'runner-up': groups[group][1]['index']
+    })
+
+  print_qualified_teams(qualified_teams)
+  return qualified_teams
+
+def print_qualified_teams(qualified_teams):
+  for group in range(0, 8):
+    group_name = 'GROUP ' + chr(65+group)
+    print('\033[1;34;40m{:>12}'.format(f'{group_name}'), end="|")
+  print('\n')
+  for group in range(0, 8):
+    team_name = common.TEAMS[qualified_teams[group]['winner']]
+    print('\033[0;37;40m{:>12}'.format(f'{team_name}'), end="|")
+  print('\n')
+  for group in range(0, 8):
+    team_name = common.TEAMS[qualified_teams[group]['runner-up']]
+    print('\033[0;37;40m{:>12}'.format(f'{team_name}'), end="|")
+  print('\n')
 
 def group_stage():
   initial_grouping()
@@ -76,3 +103,6 @@ def group_stage():
       match(home_team, away_team)
 
   print_points()
+
+  qualified_teams = get_qualified_teams()
+  return qualified_teams
