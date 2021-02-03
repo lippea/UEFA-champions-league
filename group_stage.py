@@ -33,7 +33,7 @@ print('\n\033[1;34;40m{:^145}'.format('GROUP STAGE FINAL SCORES'))
 
 def get_points(e):
   return e['points']
-def print_points():
+def print_result():
   for group in range(0, 8):
     group_name = 'GROUP ' + chr(65+group)
     print('\033[1;34;40m{:>17}'.format(f'{group_name}'), end="|")
@@ -48,6 +48,22 @@ def print_points():
       team_points = groups[group][index]['points']
       print('\033[0;37;40m{:>17}'.format(f'{common.TEAMS[team_index]}: {team_points}'), end="|")
     print()
+
+  separators = ['|', '|', 'V']
+  for char in separators:
+    for group in range(0, 8):
+      print('\033[0;37;40m{:>17}'.format(f'{char}    '), end=" ")
+    print()
+
+  # print qualified teams
+  for group in range(0, 8):
+    team_index = groups[group][0]['index']
+    print('\033[0;37;40m{:>17}'.format(f'{common.TEAMS[team_index]}'), end=" ")
+  print()
+  for group in range(0, 8):
+    team_index = groups[group][1]['index']
+    print('\033[0;37;40m{:>17}'.format(f'{common.TEAMS[team_index]}'), end=" ")
+  print()
 
 
 def initial_grouping():
@@ -69,22 +85,7 @@ def get_qualified_teams():
       'runner-up': groups[group][1]['index']
     })
 
-  print_qualified_teams(qualified_teams)
   return qualified_teams
-
-def print_qualified_teams(qualified_teams):
-  for group in range(0, 8):
-    group_name = 'GROUP ' + chr(65+group)
-    print('\033[1;34;40m{:>12}'.format(f'{group_name}'), end="|")
-  print()
-  for group in range(0, 8):
-    team_name = common.TEAMS[qualified_teams[group]['winner']]
-    print('\033[0;37;40m{:>12}'.format(f'{team_name}'), end="|")
-  print('')
-  for group in range(0, 8):
-    team_name = common.TEAMS[qualified_teams[group]['runner-up']]
-    print('\033[0;37;40m{:>12}'.format(f'{team_name}'), end="|")
-  print('')
 
 def group_stage():
   initial_grouping()
@@ -103,7 +104,8 @@ def group_stage():
       away_team = group_teams[round2_arragement[day][1]]
       match(home_team, away_team)
 
-  print_points()
-
   qualified_teams = get_qualified_teams()
+
+  print_result()
+
   return qualified_teams
