@@ -29,23 +29,26 @@ def match(home_team, away_team):
   # add points
   calculate_points(home_team, home_score, away_team, away_score)
 
-print('\n\033[1;34;40m{:^80}'.format('GROUP STAGE FINAL SCORES'), end="")
+print('\n\033[1;34;40m{:^145}'.format('GROUP STAGE FINAL SCORES'))
 
 def get_points(e):
   return e['points']
 def print_points():
-  for group in range(0,8):
-    print(f'\n\033[1;34;40mGROUP {chr(65+group)}:', end="")
-    group_teams = groups[group]
+  for group in range(0, 8):
+    group_name = 'GROUP ' + chr(65+group)
+    print('\033[1;34;40m{:>17}'.format(f'{group_name}'), end="|")
     #sort by points desc
+    group_teams = groups[group]
     group_teams.sort(key=get_points, reverse=True)
-    
-    for team in range(0,4):
-      team_index = group_teams[team]['index']
-      team_points = group_teams[team]['points']
-      print('\033[0;37;40m{:>16}'.format(f'{common.TEAMS[team_index]}: {team_points}'), end="")
+  print()
 
-  print('\n')
+  for index in range(0, 4):
+    for group in range(0,8):
+      team_index = groups[group][index]['index']
+      team_points = groups[group][index]['points']
+      print('\033[0;37;40m{:>17}'.format(f'{common.TEAMS[team_index]}: {team_points}'), end="|")
+    print()
+
 
 def initial_grouping():
   #8 groups
