@@ -4,7 +4,7 @@ import group_stage
 qualified_teams = group_stage.group_stage()
 
 import knockout_phase
-# knockout_phase.knockout_phase(qualified_teams)
+knockout_phase.knockout_phase(qualified_teams)
 
 # import common_test
 # common_test.add_results_test()
