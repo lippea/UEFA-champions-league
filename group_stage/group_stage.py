@@ -11,6 +11,8 @@ def process_stage(top_32_teams):
 
   groups_with_points_desc = sort.sort_by_points_desc(groups_with_points)
 
-  next_phase_teams = finalise.get_next_phase_teams(groups_with_points_desc)
+  next_phase_teams_by_group = finalise.get_next_phase_teams(groups_with_points_desc)
 
   output.print_result(groups_with_points_desc)
+
+  return next_phase_teams_by_group

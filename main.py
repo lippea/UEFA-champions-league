@@ -5,10 +5,8 @@ print('\033[1;34;40m{:^145}'.format('UEFA CHAMPIONS LEAGUE'))
 import sys
 sys.path.append('./group_stage')
 import group_stage
-group_stage.process_stage(TOP_32_TEAMS)
-
-# import group_stage
-# qualified_teams = group_stage.group_stage()
+next_phase_teams_by_group = group_stage.process_stage(TOP_32_TEAMS)
+print(next_phase_teams_by_group)
 
 # qualified_teams = [
 #   {'winner': 1, 'runner-up': 0}, {'winner': 4, 'runner-up': 5}, {'winner': 8, 'runner-up': 9}, {'winner': 13, 'runner-up': 12},
