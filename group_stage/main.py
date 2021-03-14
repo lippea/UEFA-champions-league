@@ -2,6 +2,7 @@ TOP_32_TEAMS = ('Bayern', 'Atleti', 'RB Salzburg', 'Lokomotiv', 'Real Madrid', '
 
 import initialise
 import match
+import sort
 
 def process_stage(top_32_teams):
   initilised_groups = initialise.random_group(top_32_teams)
@@ -9,5 +10,8 @@ def process_stage(top_32_teams):
 
   groups_with_points = match.round_robin(initilised_groups)
   print(groups_with_points)
+
+  groups_with_points_desc = sort.sort_by_points_desc(groups_with_points)
+  print(groups_with_points_desc)
 
 process_stage(TOP_32_TEAMS)
