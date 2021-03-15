@@ -20,3 +20,15 @@ def ninety_mins_match():
   away_score = get_score()
 
   return [home_score, away_score]
+
+def overtime_match():
+  # get scores for two teams
+  home_score = get_score()
+  away_score = get_score()
+
+  # need a winner
+  while (home_score == away_score):
+    home_score = get_score()
+    away_score = get_score()
+  
+  return [home_score, away_score]
