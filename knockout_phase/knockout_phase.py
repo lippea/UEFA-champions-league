@@ -4,13 +4,14 @@ import round_print
 import round_repair
 
 def process_phase(winners_from_group_stage):
+  print('\n\033[1;34;40m{:^145}'.format('KNOCKOUT PHASE'))
   pairs = initial_pair.pair(winners_from_group_stage)
 
   proccessed_rounds = 0
   while len(pairs) > 1:
     winners = round_match.round_match(pairs)
 
-    round_print.round_print(pairs)
+    round_print.round_print(pairs, proccessed_rounds)
 
     pairs = round_repair.repair(winners)
     proccessed_rounds += 1
