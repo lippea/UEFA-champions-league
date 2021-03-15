@@ -13,8 +13,8 @@ def round_print(pairs, round_number):
     print(print_str.format(f'{pair["team_b"]} ({pair["b:a"][0]}:{pair["b:a"][1]})'), end=" ")
   print()
 
-  for j in range(0, (round_number+1)*4):
-    space = ' ' * j * 2
+  for j in range(0, (round_number+1)*2):
+    space = ' ' * j * 10
     for i in range(0, len(pairs)//2):
       print(print_str.format(f'{space}\\'), end=" ")
       print(print_str.format(f'/{space}'), end=" ")
