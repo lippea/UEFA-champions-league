@@ -12,7 +12,7 @@ def pair(winners_from_group_stage):
       'team_a': team_a,
       'team_b': team_b,
       'a:b': [0, 0],
-      'b:a': [0, 0]
+      'b:a': [0, 0],
     })
 
   return pairs
