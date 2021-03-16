@@ -6,8 +6,6 @@ def final_print(pair, champain):
 
   print(print_str.format(f'|'), end=" ")
   print()
-  print(print_str.format(f'|'), end=" ")
-  print()
   print(print_str.format(f'V'), end=" ")
   print()
   print(print_str.format(f'{champain}'), end=" ")

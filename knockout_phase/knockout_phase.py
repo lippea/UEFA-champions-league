@@ -13,7 +13,7 @@ def process_phase(winners_from_group_stage):
   while len(pairs) > 1:
     winners = round_match.round_match(pairs)
 
-    round_print.round_print(pairs, proccessed_rounds)
+    round_print.round_print(pairs, winners, proccessed_rounds)
 
     pairs = round_repair.repair(winners)
     proccessed_rounds += 1
