@@ -3,6 +3,7 @@ import round_match
 import round_print
 import round_repair
 import final_match
+import final_print
 
 def process_phase(winners_from_group_stage):
   print('\n\033[1;34;40m{:^145}'.format('KNOCKOUT PHASE'))
@@ -18,8 +19,8 @@ def process_phase(winners_from_group_stage):
     proccessed_rounds += 1
 
   champain = final_match.final_match(pairs[0])
-  print(champain)
+  final_print.final_print(pairs[0])
     
     
-
+# test knockout_phase individually
 # process_phase([{'winner': 'Sevilla', 'runner-up': 'Liverpool'}, {'winner': 'Man City', 'runner-up': 'Real Madrid'}, {'winner': 'Ajax', 'runner-up': 'İstanbul'}, {'winner': 'Chelsea', 'runner-up': 'Dynamo Kiev'}, {'winner': 'Juventus', 'runner-up': 'Dortmund'}, {'winner': 'Porto', 'runner-up': 'RB Salzburg'}, {'winner': 'Man United', 'runner-up': 'M. Gladbach'}, {'winner': 'Lokomotiv', 'runner-up': 'Lazio'}])
