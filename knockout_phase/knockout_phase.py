@@ -19,7 +19,7 @@ def process_phase(winners_from_group_stage):
     proccessed_rounds += 1
 
   champain = final_match.final_match(pairs[0])
-  final_print.final_print(pairs[0])
+  final_print.final_print(pairs[0], champain)
     
     
 # test knockout_phase individually
