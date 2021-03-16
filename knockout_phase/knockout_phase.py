@@ -2,6 +2,7 @@ import initial_pair
 import round_match
 import round_print
 import round_repair
+import final_match
 
 def process_phase(winners_from_group_stage):
   print('\n\033[1;34;40m{:^145}'.format('KNOCKOUT PHASE'))
@@ -15,6 +16,9 @@ def process_phase(winners_from_group_stage):
 
     pairs = round_repair.repair(winners)
     proccessed_rounds += 1
+
+  champain = final_match.final_match(pairs[0])
+  print(champain)
     
     
 
