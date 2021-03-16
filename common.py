@@ -1,8 +1,5 @@
 import random
 
-# all teams entering the competetion
-TEAMS = ('Bayern', 'Atleti', 'RB Salzburg', 'Lokomotiv', 'Real Madrid', 'M. Gladbach', 'Shakhtar', 'Inter Milan', 'Man City', 'Porto', 'Olympiacos', 'Marseille', 'Liverpool', 'Atalanta', 'Ajax', 'Midtjylland', 'Chelsea', 'Sevilla', 'Krasnodar', 'Rennes', 'Dortmund', 'Lazio', 'Club Brugge', 'Zenit', 'Juventus', 'Barcelona', 'Dynamo Kiev', 'Ferencváros', 'Paris SG', 'RB Leipzig', 'Man United', 'İstanbul')
-
 # history match results
 results = []
 def add_results(home_team, home_score, away_team, away_score):
@@ -19,4 +16,16 @@ def ninety_mins_match():
   home_score = get_score()
   away_score = get_score()
 
+  return [home_score, away_score]
+
+def overtime_match():
+  # get scores for two teams
+  home_score = get_score()
+  away_score = get_score()
+
+  # need a winner
+  while (home_score == away_score):
+    home_score = get_score()
+    away_score = get_score()
+  
   return [home_score, away_score]

@@ -6,13 +6,8 @@ import sys
 sys.path.append('./group_stage')
 import group_stage
 next_phase_teams_by_group = group_stage.process_stage(TOP_32_TEAMS)
-print(next_phase_teams_by_group)
 
-# qualified_teams = [
-#   {'winner': 1, 'runner-up': 0}, {'winner': 4, 'runner-up': 5}, {'winner': 8, 'runner-up': 9}, {'winner': 13, 'runner-up': 12},
-#   {'winner': 17, 'runner-up': 19}, {'winner': 20, 'runner-up': 21}, {'winner': 25, 'runner-up': 24}, {'winner': 31, 'runner-up': 29}]
-# import knockout_phase
-# knockout_phase.knockout_phase(qualified_teams)
-
-# import common_test
-# common_test.add_results_test()
+import sys
+sys.path.append('./knockout_phase')
+import knockout_phase
+knockout_phase.process_phase(next_phase_teams_by_group)
